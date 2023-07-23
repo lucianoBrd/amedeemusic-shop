@@ -2,6 +2,9 @@ twig:
     paths: ['%kernel.project_dir%/templates']
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    globals:
+        api_path: '%app.api.url%'
+        client_path: '%app.client.url%'
 
 services:
     _defaults:

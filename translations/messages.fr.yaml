@@ -1,0 +1,13 @@
+sylius:
+  ui:
+    your_store: AmédéeMusicShop
+    powered_by: Powered by
+  top_bar: 'Sign up to our newsletter and grab -20% off'
+  footer:
+        banner:
+            free_shipping_title: 'Free Shipping & Return'
+            free_shipping_content: 'Free shipping on all orders'
+            guarantee_title: 'Money Guarantee'
+            guarantee_content: '30 days money back guarantee'
+            multiple_payments_title: 'Multiple Payment methods'
+            multiple_payments_content: 'We accept credit cards and PayPal'
