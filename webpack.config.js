@@ -86,4 +86,19 @@ appAdminConfig.resolve.alias['sylius/bundle'] = syliusBundles;
 appAdminConfig.externals = Object.assign({}, appAdminConfig.externals, { window: 'window', document: 'document' });
 appAdminConfig.name = 'app.admin';
 
-module.exports = [shopConfig, adminConfig, appShopConfig, appAdminConfig];
+// Bootstrap config
+Encore.reset();
+Encore
+  .setOutputPath('public/bootstrap-theme')
+  .setPublicPath('/bootstrap-theme')
+  .addEntry('app', './themes/BootstrapChildTheme/assets/entry.js')
+  .disableSingleRuntimeChunk()
+  .cleanupOutputBeforeBuild()
+  .enableSassLoader()
+  .enableSourceMaps(!Encore.isProduction())
+  .enableVersioning(Encore.isProduction());
+
+const bootstrapThemeConfig = Encore.getWebpackConfig();
+bootstrapThemeConfig.name = 'bootstrapTheme';
+
+module.exports = [shopConfig, adminConfig, appShopConfig, appAdminConfig, bootstrapThemeConfig];
