@@ -11,3 +11,5 @@ sylius:
             guarantee_content: '30 days money back guarantee'
             multiple_payments_title: 'Multiple Payment methods'
             multiple_payments_content: 'We accept credit cards and PayPal'
+app:
+  biography: Biographie

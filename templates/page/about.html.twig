@@ -1,0 +1,42 @@
+{% extends '@SyliusShop/layout.html.twig' %}
+
+{% block content %}
+    <!-- about section start-->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-6">
+                    <div class="center-content center-mobile">
+                        {% if artist.man is defined %}
+                        <img src="{{ api_path ~ api_path_images }}artist/{{ artist.man }}" alt="artist" class="img-fluid">
+                        {% else %}
+                        <img src="{{ asset('bootstrap-theme/images/man.png', 'bootstrapTheme') }}" alt="artist" class="img-fluid">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-lg-6 offset-lg-1 col-md-6">
+                    <div class="center-text">
+                        <div>
+                            <div class="download-img d-flex">
+                                <div class="center-img-content m-l-15">
+                                    <h3 class="m-b-5">{{ 'app.biography'|trans }}</h3>
+                                </div>
+                            </div>
+                            <div class="information">
+                                <p>
+                                    {{ 'sylius.homepage.about_us_content'|trans }}
+                                </p>
+                                {% if artistAbout.about is defined %}
+                                <p>
+                                    {{ artistAbout.about|nl2br }}
+                                </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about section end-->
+{% endblock %}

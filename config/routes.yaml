@@ -1,2 +1,9 @@
 sylius_paypal_webhook:
     resource: "@SyliusPayPalPlugin/Resources/config/webhook_routing.yaml"
+
+app_page_about:
+    path: /{_locale}/page/about
+    methods: [GET]
+    controller: App\Controller\AboutController::index
+    requirements:
+        _locale: ^[A-Za-z]{2,4}(_([A-Za-z]{4}|[0-9]{3}))?(_([A-Za-z]{2}|[0-9]{3}))?$   

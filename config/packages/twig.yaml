@@ -4,6 +4,7 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
         api_path: '%app.api.url%'
+        api_path_images: '%app.api.url.images%'
         client_path: '%app.client.url%'
 
 services:

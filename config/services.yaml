@@ -3,6 +3,7 @@
 parameters:
     locale: fr_FR
     app.api.url: '%env(APP_API_URL)%'
+    app.api.url.images: '/uploads/images/'
     app.client.url: '%env(APP_CLIENT_URL)%'
 
 services:
