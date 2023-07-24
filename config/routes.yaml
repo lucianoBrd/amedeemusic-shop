@@ -6,4 +6,11 @@ app_page_about:
     methods: [GET]
     controller: App\Controller\AboutController::index
     requirements:
-        _locale: ^[A-Za-z]{2,4}(_([A-Za-z]{4}|[0-9]{3}))?(_([A-Za-z]{2}|[0-9]{3}))?$   
+        _locale: ^[A-Za-z]{2,4}(_([A-Za-z]{4}|[0-9]{3}))?(_([A-Za-z]{2}|[0-9]{3}))?$
+
+app_page_faq:
+    path: /{_locale}/page/faq
+    methods: [GET]
+    controller: App\Controller\FaqController::index
+    requirements:
+        _locale: ^[A-Za-z]{2,4}(_([A-Za-z]{4}|[0-9]{3}))?(_([A-Za-z]{2}|[0-9]{3}))?$
