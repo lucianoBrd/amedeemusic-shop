@@ -1,0 +1,28 @@
+{% block body %}
+    {% autoescape false %}
+        {% set logo = api_path ~ '/assets/logo/logo.png' %}
+
+        <div style="font-family: sans-serif; background: #eee; padding-top: 30px; padding-bottom: 30px; font-size: 16px; color: #333; line-height: 1.5">
+            <div style="max-width: 600px; margin: 20px auto;">
+                <div style="margin-bottom: 30px; text-align: center;">
+                    {% if sylius_bundle_loaded_checker('SyliusShopBundle') %}
+                        {% set url = sylius_channel_url(path('sylius_shop_homepage', {'_locale': localeCode}), channel) %}
+                        <a href="{{ url|raw }}">
+                            <img src="{{ logo }}" alt="Logo" style="width: 170px">
+                        </a>
+                    {% else %}
+                        <img src="{{ logo }}" alt="Logo" style="width: 170px">
+                    {% endif %}
+                </div>
+
+                <div style="background: #fff; padding: 40px 30px;">
+                    {% block content %}{% endblock %}
+                </div>
+
+                <div style="text-align: center; padding: 20px 0;">
+                    <a href="{{ app_path }}" target="_blank" style="color: #e3154f; text-decoration: none;">{{ app_path }}</a>
+                </div>
+            </div>
+        </div>
+    {% endautoescape %}
+{% endblock %}

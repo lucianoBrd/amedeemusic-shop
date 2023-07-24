@@ -6,6 +6,7 @@ twig:
         api_path: '%app.api.url%'
         api_path_images: '%app.api.url.images%'
         client_path: '%app.client.url%'
+        app_path: '%app.url%'
 
 services:
     _defaults:
