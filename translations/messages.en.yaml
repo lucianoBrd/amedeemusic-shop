@@ -1,3 +1,9 @@
+sylius:
+  homepage:
+    banner_button: 'Check out the new collection'
+    banner_content: "Products of the artist Amédée! Don't wait"
+    next: 'Next'
+    prev: 'Previous'
 app:
   biography: Biography
   faq:

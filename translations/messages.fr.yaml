@@ -11,6 +11,11 @@ sylius:
             guarantee_content: '30 days money back guarantee'
             multiple_payments_title: 'Multiple Payment methods'
             multiple_payments_content: 'We accept credit cards and PayPal'
+  homepage:
+    banner_button: 'Découvrez la nouvelle collection'
+    banner_content: "Produits de l'artiste Amédée! N'attendez pas"
+    next: 'Suivant'
+    prev: 'Précédent'
 app:
   biography: Biographie
   faq:

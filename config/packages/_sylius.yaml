@@ -281,3 +281,22 @@ sylius_grid:
                         type: update
                     delete:
                         type: delete
+        app_admin_banner_image:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: App\Entity\BannerImage\BannerImage
+            fields:
+                path:
+                    type: twig
+                    options:
+                        template: "BannerImage/_fieldImage.html.twig"
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete

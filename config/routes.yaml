@@ -31,3 +31,20 @@ app_admin_faq:
                 icon: 'file image outline'
     type: sylius.resource
     prefix: admin
+
+app_admin_banner_image:
+    resource: |
+        alias: app.banner_image
+        section: admin
+        templates: "@SyliusAdmin\\Crud"
+        redirect: update
+        grid: app_admin_banner_image
+        vars:
+            all:
+                subheader: app.ui.banner_image
+                templates:
+                    form: 'BannerImage/_form.html.twig'
+            index:
+                icon: 'file image outline'
+    type: sylius.resource
+    prefix: /admin

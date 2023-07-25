@@ -1,0 +1,13 @@
+{% form_theme form '@SyliusAdmin/Form/imagesTheme.html.twig' %}
+
+<div class="ui upload box segment" id="{{ form.vars.id }}">
+    {% if form.vars.value.path|default(null) is not null %}
+        <img class="ui small bordered image" src="{{ form.vars.value.path|imagine_filter('sylius_small') }}" alt="{{ form.vars.value.type }}" />
+    {% endif %}
+    <div class="ui element">
+        {{ form_widget(form.file) }}
+    </div>
+    <div class="ui element">
+        {{- form_errors(form.file) -}}
+    </div>
+</div>

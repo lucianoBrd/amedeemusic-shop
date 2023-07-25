@@ -11,3 +11,9 @@ sylius_resource:
                 classes:
                     model: App\Entity\Faq\FaqTranslation
                     form: App\Form\Type\Faq\FaqTranslationType
+        app.banner_image:
+            driver: doctrine/orm
+            classes:
+                model: App\Entity\BannerImage\BannerImage
+                form: App\Form\Type\BannerImage\BannerImageType
+                repository: App\Repository\BannerImage\BannerImageRepository

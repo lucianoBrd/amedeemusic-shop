@@ -11,13 +11,17 @@ final class AdminMenuListener
         $menu = $event->getMenu();
 
         $newSubmenu = $menu
-            ->addChild('new')
+            ->addChild('client')
             ->setLabel('Client')
         ;
 
         $newSubmenu
-            ->addChild('new-subitem', ['route' => 'app_admin_faq_index'])
+            ->addChild('faq', ['route' => 'app_admin_faq_index'])
             ->setLabel('FAQs')
+        ;
+        $newSubmenu
+            ->addChild('banner_image', ['route' => 'app_admin_banner_image_index'])
+            ->setLabel('Banner Image')
         ;
     }
 }
