@@ -20,7 +20,7 @@ app_admin_faq:
         alias: app.faq
         section: admin
         templates: "@SyliusAdmin\\Crud"
-        redirect: update
+        redirect: index
         grid: app_admin_faq
         vars:
             all:
@@ -37,7 +37,7 @@ app_admin_banner_image:
         alias: app.banner_image
         section: admin
         templates: "@SyliusAdmin\\Crud"
-        redirect: update
+        redirect: index
         grid: app_admin_banner_image
         vars:
             all:
