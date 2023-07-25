@@ -37,3 +37,21 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    # Forms
+    app.faq.form.type:
+        class: App\Form\Type\Faq\FaqType
+        tags:
+            - { name: form.type }
+        arguments: ['%app.model.faq.class%', ['sylius']]
+    app.faq_translation.form.type:
+        class: App\Form\Type\Faq\FaqTranslationType
+        tags:
+            - { name: form.type }
+        arguments: ['%app.model.faq_translation.class%', ['sylius']]
+
+    # Menus
+    app.listener.admin.menu_builder:
+        class: App\Menu\AdminMenuListener
+        tags:
+            - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAdminMenuItems }

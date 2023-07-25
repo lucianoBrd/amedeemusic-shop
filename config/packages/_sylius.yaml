@@ -254,3 +254,30 @@ sylius_theme:
             directories:
                 - "%kernel.project_dir%/vendor/sylius/bootstrap-theme"
                 - "%kernel.project_dir%/themes"
+
+sylius_grid:
+    grids:
+        app_admin_faq:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: App\Entity\Faq\Faq
+            fields:
+                name:
+                    type: string
+                    label: sylius.ui.name
+                    sortable: translation.name
+                enabled:
+                    type: twig
+                    label: sylius.ui.enabled
+                    options:
+                        template: "@SyliusUi/Grid/Field/enabled.html.twig"
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete

@@ -1,0 +1,12 @@
+# config/packages/sylius_resource.yaml
+sylius_resource:
+    resources:
+        app.faq:
+            driver: doctrine/orm # You can use also different driver here
+            classes:
+                model: App\Entity\Faq\Faq
+                form: App\Form\Type\Faq\FaqType
+            translation:
+                classes:
+                    model: App\Entity\Faq\FaqTranslation
+                    form: App\Form\Type\Faq\FaqTranslationType
