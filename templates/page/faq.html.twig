@@ -8,41 +8,26 @@
                 <div class="col-md-8">
                     <div class="faq-block">
                         <div>
-                            <h3 class="frequent-text">Frequently Asked Questions</h3>
-                            <h6 class="mb-3">Our users are impatient. They're probably distracted too. Keep it simple and beautiful, fun
-                                and
-                                functional. Clean aesthetics supported by a strong concept is what we stand for.</h6>
+                            <h3 class="frequent-text">{{ 'app.faq.title'|trans }}</h3>
+                            <h6 class="mb-3">{{ 'app.faq.subTitle'|trans }}</h6>
 
-                                <div class="accordion mb-3" id="accordionExample">
-                                    <div class="accordion-item card">
-                                      <h6 class="accordion-header card-header" id="headingOne" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                            <i class="fas fa-angle-right"></i>
-                                            Do I need to make a payment?
-                                      </h6>
-                                      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body card-body">
-                                            No one cares about products. People care about ideas. Is a product an idea?
-                                            Noup. Is
-                                            a brand? A good one is.
+                                <div class="accordion mb-3" id="accordion">
+                                    {% for faq in faqs %}
+                                        <div class="accordion-item card">
+                                            <h6 class="accordion-header card-header" id="heading-{{ faq.id }}" data-bs-toggle="collapse" data-bs-target="#collapse-{{ faq.id }}" aria-expanded="false" aria-controls="collapse-{{ faq.id }}">
+                                                <i class="fas fa-angle-right"></i>
+                                                {{ faq.name }}
+                                            </h6>
+                                            <div id="collapse-{{ faq.id }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ faq.id }}" data-bs-parent="#accordion">
+                                            <div class="accordion-body card-body">
+                                                {{ faq.description }}
+                                            </div>
+                                            </div>
                                         </div>
-                                      </div>
-                                    </div>
-                                    <div class="accordion-item card">
-                                        <h6 class="accordion-header card-header" id="headingTwo" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                              <i class="fas fa-angle-right"></i>
-                                              Do I need to make a payment?
-                                        </h6>
-                                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                          <div class="accordion-body card-body">
-                                              No one cares about products. People care about ideas. Is a product an idea?
-                                              Noup. Is
-                                              a brand? A good one is.
-                                          </div>
-                                        </div>
-                                      </div>
-                                  </div>
+                                    {% endfor %}
+                                </div>
 
-                            <h6 class="link">Still have a question? Reach out to us: <a href="mailto:demo@123.com">demo@123.com</a></h6>
+                            <h6 class="link">{{ 'app.faq.contact'|trans }} <a href="mailto:{{ app_contact }}">{{ app_contact }}</a></h6>
                         </div>
                     </div>
                 </div>

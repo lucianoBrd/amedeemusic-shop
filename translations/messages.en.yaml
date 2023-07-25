@@ -1,2 +1,6 @@
 app:
   biography: Biography
+  faq:
+    title: 'Frequently Asked Questions'
+    subTitle: "Amédée's team answers your most frequently asked questions."
+    contact: 'Still have a question? Reach out to us:'

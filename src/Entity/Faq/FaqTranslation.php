@@ -3,10 +3,11 @@
 namespace App\Entity\Faq;
 
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\Faq\FaqTranslationRepository;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\AbstractTranslation;
 
-#[ORM\Entity()]
+#[ORM\Entity(repositoryClass: FaqTranslationRepository::class)]
 class FaqTranslation extends AbstractTranslation implements ResourceInterface
 {
     #[ORM\Id]

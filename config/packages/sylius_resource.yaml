@@ -6,6 +6,7 @@ sylius_resource:
             classes:
                 model: App\Entity\Faq\Faq
                 form: App\Form\Type\Faq\FaqType
+                repository: App\Repository\Faq\FaqRepository
             translation:
                 classes:
                     model: App\Entity\Faq\FaqTranslation

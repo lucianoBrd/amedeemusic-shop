@@ -4,12 +4,13 @@ namespace App\Entity\Faq;
 
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Faq\FaqTranslation;
+use App\Repository\Faq\FaqRepository;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TranslatableTrait;
 use Sylius\Component\Resource\Model\TranslationInterface;
 use Sylius\Component\Resource\Model\TranslatableInterface;
 
-#[ORM\Entity()]
+#[ORM\Entity(repositoryClass: FaqRepository::class)]
 class Faq implements ResourceInterface, TranslatableInterface
 {
     use TranslatableTrait {

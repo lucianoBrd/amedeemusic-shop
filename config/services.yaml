@@ -6,6 +6,7 @@ parameters:
     app.api.url.images: '/uploads/images/'
     app.client.url: '%env(APP_CLIENT_URL)%'
     app.url: '%env(APP_URL)%'
+    app.contact: 'contact@amedeemusic.com'
 
 services:
     # Default configuration for services in *this* file
