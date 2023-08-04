@@ -54,6 +54,11 @@ services:
         class: App\Form\Type\BannerImage\BannerImageType
         tags:
             - { name: form.type }
+    app.product_bundle.form.type:
+        class: App\Form\Type\ProductBundle\ProductBundleType
+        tags:
+            - { name: form.type }
+        arguments: ['%app.model.product_bundle.class%', ['sylius']]
 
     # Menus
     app.listener.admin.menu_builder:

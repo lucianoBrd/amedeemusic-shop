@@ -21,4 +21,5 @@ sylius_resource:
             driver: doctrine/orm
             classes:
                 model: App\Entity\ProductBundle\ProductBundle
+                form: App\Form\Type\ProductBundle\ProductBundleType
                 repository: App\Repository\ProductBundle\ProductBundleRepository
