@@ -1,0 +1,20 @@
+<div class="border-product">
+    <h2 class="mt-5 mb-3 text-center font-weight-bold">Frequently bought together</h2>
+    <div class="bundle">
+        <div class="bundle_img">
+            {% for product in bundle.products %}
+            <div class="img-box">
+                {% include '@SyliusShop/Product/_box.html.twig' %}
+            </div>
+            {% if not loop.last %}
+            <span class="plus">+</span>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <form action="" method="post" class="bundle_img">
+            <button type="submit" class="btn btn-labeled btn-primary">
+                <span class="btn-label"><i class="fas fa-bolt"></i></span>Buy this pack
+            </button>
+        </form>
+    </div>
+</div>

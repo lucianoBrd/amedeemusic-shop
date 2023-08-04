@@ -1,0 +1,7 @@
+sylius_ui:
+    events:
+        sylius.shop.homepage:
+            blocks:
+                bundle:
+                    template: "page/Homepage/ProductBundle/_index.html.twig"
+                    priority: 50
