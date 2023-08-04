@@ -1,0 +1,12 @@
+{{ render(controller('sylius.controller.shop.security_widget::renderAction')) }}
+
+<form class="d-flex" method="get" action="{{ path('app_page_search') }}">
+    <div class="form-group me-sm-2 my-2 my-sm-0">
+        <div class="input-group">
+          <input type="search" class="form-control" name="criteria[search][value]" placeholder="{{ 'sylius.ui.search_products'|trans }}..." aria-label="{{ 'sylius.ui.search_products'|trans }}" aria-describedby="topbar-button-search">
+          <button class="btn btn-primary" type="submit" id="topbar-button-search">
+            <i class="fas fa-search mr-2"></i> {{ 'sylius.ui.search'|trans }}
+          </button>
+        </div>
+      </div>
+</form>

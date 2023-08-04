@@ -8,6 +8,13 @@ app_page_about:
     requirements:
         _locale: ^[A-Za-z]{2,4}(_([A-Za-z]{4}|[0-9]{3}))?(_([A-Za-z]{2}|[0-9]{3}))?$
 
+app_page_search:
+    path: /{_locale}/page/search
+    methods: [GET]
+    controller: App\Controller\SearchController::index
+    requirements:
+        _locale: ^[A-Za-z]{2,4}(_([A-Za-z]{4}|[0-9]{3}))?(_([A-Za-z]{2}|[0-9]{3}))?$
+
 app_page_faq:
     path: /{_locale}/page/faq
     methods: [GET]
