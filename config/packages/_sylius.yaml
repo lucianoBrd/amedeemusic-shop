@@ -300,3 +300,21 @@ sylius_grid:
                         type: update
                     delete:
                         type: delete
+        app_admin_product_bundle:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: App\Entity\ProductBundle\ProductBundle
+            fields:
+                name:
+                    type: string
+                    label: sylius.ui.name
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete

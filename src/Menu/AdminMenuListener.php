@@ -23,5 +23,9 @@ final class AdminMenuListener
             ->addChild('banner_image', ['route' => 'app_admin_banner_image_index'])
             ->setLabel('Banner Image')
         ;
+        $newSubmenu
+            ->addChild('product_bundle', ['route' => 'app_admin_product_bundle_index'])
+            ->setLabel('Product Bundle')
+        ;
     }
 }

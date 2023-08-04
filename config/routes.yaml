@@ -55,3 +55,18 @@ app_admin_banner_image:
                 icon: 'file image outline'
     type: sylius.resource
     prefix: /admin
+
+app_product_bundle:
+    resource: |
+        alias: app.product_bundle
+        section: admin
+        templates: "@SyliusAdmin\\Crud"
+        redirect: index
+        grid: app_admin_product_bundle
+        vars:
+            all:
+                subheader: app.ui.product_bundle
+            index:
+                icon: 'file image outline'
+    type: sylius.resource
+    prefix: /admin
