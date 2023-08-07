@@ -27,6 +27,12 @@ app_page_product_bundle:
     methods: [GET]
     controller: App\Controller\ProductBundleController::index
 
+app_add_bundle:
+    path: /bundle/{name}
+    methods: [POST]
+    defaults:
+        _controller: App\Controller\ProductBundleAction
+
 app_admin_faq:
     resource: |
         alias: app.faq

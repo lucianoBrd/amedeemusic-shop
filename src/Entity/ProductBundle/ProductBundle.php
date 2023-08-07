@@ -8,8 +8,10 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\ProductBundle\ProductBundleInterface;
 use App\Repository\ProductBundle\ProductBundleRepository;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: ProductBundleRepository::class)]
+#[UniqueEntity('name')]
 class ProductBundle implements ProductBundleInterface
 {
     #[ORM\Id]
@@ -17,7 +19,7 @@ class ProductBundle implements ProductBundleInterface
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, unique: true)]
     private ?string $name = null;
 
     #[ORM\ManyToMany(targetEntity: Product::class)]

@@ -11,7 +11,7 @@
             {% endif %}
             {% endfor %}
         </div>
-        <form action="" method="post" class="bundle_img">
+        <form action="{{ path('app_add_bundle', {'name': bundle.name }) }}" method="post" class="bundle_img">
             <button type="submit" class="btn btn-labeled btn-primary">
                 <span class="btn-label"><i class="fas fa-bolt"></i></span>Buy this pack
             </button>
