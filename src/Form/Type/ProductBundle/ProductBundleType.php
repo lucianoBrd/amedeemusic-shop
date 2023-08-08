@@ -19,13 +19,13 @@ final class ProductBundleType extends AbstractResourceType
     {
         $builder
             ->add('name', TextType::class, ['label' => 'sylius.ui.name'])
-            ->add('products', EntityType::class, array(
+            ->add('products', EntityType::class, [
                 'class' => Product::class,
                 'choice_label' => 'name',
                 'label'        => 'Product',
                 'expanded'     => true,
                 'multiple'     => true,
-            ))
+            ])
         ;
     }
 

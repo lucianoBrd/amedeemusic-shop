@@ -2,24 +2,25 @@
 
 namespace App\Controller;
 
-use App\Repository\ProductBundle\ProductBundleRepository;
+use Webmozart\Assert\Assert;
 use Doctrine\Persistence\ObjectManager;
-use Sylius\Component\Channel\Context\ChannelNotFoundException;
-use Sylius\Component\Channel\Model\ChannelInterface;
-use Sylius\Component\Core\Context\ShopperContextInterface;
-use Sylius\Component\Core\Model\OrderInterface;
-use Sylius\Component\Core\Model\OrderItemInterface;
-use Sylius\Component\Core\Model\ProductVariantInterface;
-use Sylius\Component\Core\Repository\ProductVariantRepositoryInterface;
-use Sylius\Component\Order\Context\CartContextInterface;
-use Sylius\Component\Order\Context\CartNotFoundException;
-use Sylius\Component\Order\Modifier\OrderItemQuantityModifierInterface;
-use Sylius\Component\Resource\Factory\FactoryInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Sylius\Component\Core\Model\OrderInterface;
+use Sylius\Component\Core\Model\OrderItemInterface;
+use Sylius\Component\Channel\Model\ChannelInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Sylius\Component\Resource\Factory\FactoryInterface;
+use Sylius\Component\Core\Model\ProductVariantInterface;
+use Sylius\Component\Order\Context\CartContextInterface;
+use App\Repository\ProductBundle\ProductBundleRepository;
+use Sylius\Component\Order\Context\CartNotFoundException;
+use Sylius\Component\Core\Context\ShopperContextInterface;
+use Sylius\Component\Channel\Context\ChannelNotFoundException;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sylius\Component\Core\Repository\ProductVariantRepositoryInterface;
+use Sylius\Component\Order\Modifier\OrderItemQuantityModifierInterface;
 
 class ProductBundleAction extends AbstractController
 {
@@ -37,16 +38,51 @@ class ProductBundleAction extends AbstractController
     {
         $bundleName = $request->attributes->get('name');
         $bundle = $productBundleRepository->findOneBy(['name' => $bundleName]);
-
+        
         $order = $this->getCurrentCart();
         $channel = $this->getCurrentChannel();
 
+        $addProductBundleToCart = $request->request->all();
+        if (isset($addProductBundleToCart['app_add_product_bundle_to_cart'])) {
+            $addProductBundleToCart = $addProductBundleToCart['app_add_product_bundle_to_cart'];
+        }
+        
         if ($order && $channel) {
             $orderItems = $order->getItems();
             foreach ($bundle->getProducts() as $product) {
                 $productId = (int) $product->getVariants()->first()->getId();
+
+                if (isset($addProductBundleToCart[(string) $product->getId()])) {
+                    $cartItem = $addProductBundleToCart[(string) $product->getId()];
+                    if (isset($cartItem['cartItem']) && isset($cartItem['cartItem']['variant'])) {
+                        $variants = $cartItem['cartItem']['variant'];
+                        foreach ($product->getVariants() as $var) {
+                            $found = true;
+                            foreach ($var->getOptionValues() as $optionValue) {
+                                $code = $optionValue->getCode();
+                                $optionCode = $optionValue->getOptionCode();
+                                foreach ($variants as $key => $value) {
+                                    if ($key != $optionCode || $value != $code) {
+                                        $found = false;
+                                        break;
+                                    }
+                                }
+                                if (!$found) {
+                                    break;
+                                }
+                            }
+                            if ($found == true) {
+                                $productId = $var->getId();
+                                break;
+                            }
+                        }
+                    }
+                }
+                
                 /** @var ProductVariantInterface $variant */
                 $variant = $this->productVariantRepository->find($productId);
+
+                Assert::notNull($variant);
 
                 /** @var OrderItemInterface $orderItem */
                 $orderItem = $this->orderItemFactory->createNew();

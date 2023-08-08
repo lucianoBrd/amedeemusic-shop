@@ -1,20 +1,44 @@
+{% form_theme form '@SyliusShop/Form/theme.html.twig' %}
+
 <div class="border-product">
     <h2 class="mt-5 mb-3 text-center font-weight-bold">Frequently bought together</h2>
     <div class="bundle">
+        {{ form_start(form, {'action': path('app_add_bundle', {'name': bundle.name})}) }}
+        {{ form_errors(form) }}
         <div class="bundle_img">
             {% for product in bundle.products %}
             <div class="img-box">
                 {% include '@SyliusShop/Product/_box.html.twig' %}
+
+                <div class="card">
+                    <div class="card-body">
+                        {% for formItem in form.children %}
+                            {% if formItem.vars.name == product.id %}
+                                {% if not product.simple %}
+                                    {% if product.variantSelectionMethodChoice %}
+                                        {% include '@SyliusShop/Product/Show/_variants.html.twig' with {'product': product, 'form': formItem} %}
+                                    {% else %}
+                                        {% include '@SyliusShop/Product/Show/_options.html.twig' with {'product': product, 'form': formItem} %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
             {% if not loop.last %}
             <span class="plus">+</span>
             {% endif %}
             {% endfor %}
         </div>
-        <form action="{{ path('app_add_bundle', {'name': bundle.name }) }}" method="post" class="bundle_img">
-            <button type="submit" class="btn btn-labeled btn-primary">
-                <span class="btn-label"><i class="fas fa-bolt"></i></span>Buy this pack
-            </button>
-        </form>
+        <div class="bundle_img">
+            <div class="btn-form">
+                <button type="submit" class="btn btn-labeled btn-primary">
+                    <span class="btn-label"><i class="fas fa-bolt"></i></span>Buy this pack
+                </button>
+            </div>
+        </div>
+        {{ form_row(form._token) }}
+        {{ form_end(form, {'render_rest': false}) }}
     </div>
 </div>
