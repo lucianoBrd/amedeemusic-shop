@@ -6,10 +6,9 @@
         justify-content: center;
 
         .img-box {
-            .card {
-                border: 1px solid #ddd !important;
-                padding: 2px;
-            }
+            border: 1px solid #ddd !important;
+            border-radius: 0.25rem;
+            padding: 2px;
         }
 
         .plus {
