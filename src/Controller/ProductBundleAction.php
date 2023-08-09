@@ -61,13 +61,15 @@ class ProductBundleAction extends AbstractController
                             foreach ($var->getOptionValues() as $optionValue) {
                                 $code = $optionValue->getCode();
                                 $optionCode = $optionValue->getOptionCode();
+                                $match = false;
                                 foreach ($variants as $key => $value) {
-                                    if ($key != $optionCode || $value != $code) {
-                                        $found = false;
+                                    if ($key == $optionCode && $value == $code) {
+                                        $match = true;
                                         break;
                                     }
                                 }
-                                if (!$found) {
+                                if (!$match) {
+                                    $found = false;
                                     break;
                                 }
                             }
