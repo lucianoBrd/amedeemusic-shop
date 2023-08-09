@@ -2,6 +2,7 @@
 
 namespace App\Repository\ProductBundle;
 
+use App\Entity\Product\Product;
 use App\Entity\ProductBundle\ProductBundle;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
@@ -15,20 +16,20 @@ use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 class ProductBundleRepository extends EntityRepository
 {
 
-//    /**
-//     * @return ProductBundle[] Returns an array of ProductBundle objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('p.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return ProductBundle[] Returns an array of ProductBundle objects
+     */
+    public function findByProduct(Product $product): array
+    {
+        return $this->createQueryBuilder('p')
+            ->leftJoin('p.products', 'product')
+            ->andWhere('product.id = :val')
+            ->setParameter('val', $product->getId())
+            ->orderBy('p.id', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
 //    public function findOneBySomeField($value): ?ProductBundle
 //    {

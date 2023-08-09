@@ -22,3 +22,6 @@ app:
     title: 'Foire Aux Questions'
     subTitle: "L'équipe d'Amédée répond à vos questions les plus fréquentes"
     contact: 'Vous avez encore une question? Contactez-nous:'
+  product_bundle:
+    title: 'Fréquemment achetés ensemble'
+    button: 'Acheter ce pack'

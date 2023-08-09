@@ -16,10 +16,12 @@ final class AddProductBundleToCartType extends AbstractType
     {
         $bundle = $options['bundle'];
 
-        foreach ($bundle->getProducts() as $product) {
-            $builder->add((string) $product->getId(), AddToCartType::class, 
-            ['product' => $product]
-        );
+        if ($bundle) {
+            foreach ($bundle->getProducts() as $product) {
+                $builder->add((string) $product->getId(), AddToCartType::class, 
+                    ['product' => $product]
+                );
+            }
         }
     }
 
@@ -31,7 +33,7 @@ final class AddProductBundleToCartType extends AbstractType
             ->setDefined([
                 'bundle',
             ])
-            ->setAllowedTypes('bundle', ProductBundleInterface::class)
+            ->setAllowedTypes('bundle', [ProductBundleInterface::class, 'null'])
         ;
     }
 

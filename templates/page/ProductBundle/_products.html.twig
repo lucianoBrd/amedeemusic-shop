@@ -1,7 +1,7 @@
 {% form_theme form '@SyliusShop/Form/theme.html.twig' %}
-
+{% if bundle and bundle.products|length > 0 %}
 <div class="border-product">
-    <h2 class="mt-5 mb-3 text-center font-weight-bold">Frequently bought together</h2>
+    <h2 class="mt-5 mb-3 text-center font-weight-bold">{{ 'app.product_bundle.title'|trans }}</h2>
     <div class="bundle">
         {{ form_start(form, {'action': path('app_add_bundle', {'name': bundle.name})}) }}
         {{ form_errors(form) }}
@@ -34,7 +34,7 @@
         <div class="bundle_img">
             <div class="btn-form">
                 <button type="submit" class="btn btn-labeled btn-primary">
-                    <span class="btn-label"><i class="fas fa-bolt"></i></span>Buy this pack
+                    <span class="btn-label"><i class="fas fa-bolt"></i></span>{{ 'app.product_bundle.button'|trans }}
                 </button>
             </div>
         </div>
@@ -42,3 +42,4 @@
         {{ form_end(form, {'render_rest': false}) }}
     </div>
 </div>
+{% endif %}

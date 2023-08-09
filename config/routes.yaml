@@ -22,10 +22,14 @@ app_page_faq:
     requirements:
         _locale: ^[A-Za-z]{2,4}(_([A-Za-z]{4}|[0-9]{3}))?(_([A-Za-z]{2}|[0-9]{3}))?$
 
-app_page_product_bundle:
-    path: /bundle
+app_page_product_bundle_homepage:
+    path: /homepage/bundle
     methods: [GET]
-    controller: App\Controller\ProductBundleController::index
+    controller: App\Controller\ProductBundleController::homepage
+app_page_product_bundle_product:
+    path: /product/bundle
+    methods: [GET]
+    controller: App\Controller\ProductBundleController::product
 
 app_add_bundle:
     path: /bundle/{name}
