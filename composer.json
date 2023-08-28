@@ -23,6 +23,7 @@
     ],
     "require": {
         "php": "^8.0",
+        "bitbag/wishlist-plugin": "^3.0",
         "sylius/bootstrap-theme": "^0.7.1",
         "sylius/paypal-plugin": "^1.5",
         "sylius/sylius": "^1.12",

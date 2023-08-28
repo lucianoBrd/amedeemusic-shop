@@ -101,4 +101,7 @@ Encore
 const bootstrapThemeConfig = Encore.getWebpackConfig();
 bootstrapThemeConfig.name = 'bootstrapTheme';
 
-module.exports = [shopConfig, adminConfig, appShopConfig, appAdminConfig, bootstrapThemeConfig];
+// Bitbag Whishlist config
+const [ bitbagWishlistShop, bitbagWishlistAdmin ] = require('./vendor/bitbag/wishlist-plugin/webpack.config.js');
+
+module.exports = [shopConfig, adminConfig, appShopConfig, appAdminConfig, bootstrapThemeConfig, bitbagWishlistShop, bitbagWishlistAdmin];

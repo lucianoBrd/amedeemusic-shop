@@ -5,3 +5,32 @@
         }
     }
 }
+
+@media only screen and (max-width: 767px) {
+
+    .product-box,
+    .product-wrap {
+        &:hover {
+            .cart-wrap {
+                a, button {
+                    animation: none
+                }
+            }
+        }
+    }
+
+    .product-box {
+
+        .cart-info,
+        .cart-wrap {
+            opacity: 1;
+
+            &.cart-wrap {
+                a, button {
+                    font-size: inherit;
+                    padding: 4px;
+                }
+            }
+        }
+    }
+}

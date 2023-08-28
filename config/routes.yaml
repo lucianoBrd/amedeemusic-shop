@@ -85,3 +85,6 @@ app_product_bundle:
                 icon: 'file image outline'
     type: sylius.resource
     prefix: /admin
+
+bitbag_sylius_wishlist_plugin:
+    resource: "@BitBagSyliusWishlistPlugin/Resources/config/routing.yml"
