@@ -1,13 +1,12 @@
 {% extends '@SyliusShop/layout.html.twig' %}
 
+{% import '@SyliusShop/Common/Macro/headers.html.twig' as headers %}
+
+{% form_theme form '@SyliusShop/Form/theme.html.twig' %}
+
 {% block content %}
 
-    <h1 class="ui header">
-        <i class="circular file icon"></i>
-        <div class="content">
-            {{ 'bitbag_sylius_wishlist_plugin.ui.import_from_csv'|trans }}
-        </div>
-    </h1>
+    {{ headers.default('bitbag_sylius_wishlist_plugin.ui.import_from_csv'|trans, '', '') }}
 
     {{ form_start(form, { attr: { class: 'import-wishlist ui form', id: "wishlist_import_form" } }) }}
         <div class="wishlist-import">
