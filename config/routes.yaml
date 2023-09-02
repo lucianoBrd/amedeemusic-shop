@@ -37,6 +37,13 @@ app_add_bundle:
     defaults:
         _controller: App\Controller\ProductBundleAction
 
+app_page_public:
+    path: /{_locale}/page/public/{slug}
+    methods: [GET]
+    controller: App\Controller\PageController::index
+    requirements:
+        _locale: ^[A-Za-z]{2,4}(_([A-Za-z]{4}|[0-9]{3}))?(_([A-Za-z]{2}|[0-9]{3}))?$
+
 app_admin_faq:
     resource: |
         alias: app.faq
@@ -85,6 +92,23 @@ app_product_bundle:
                 icon: 'file image outline'
     type: sylius.resource
     prefix: /admin
+
+app_admin_page:
+    resource: |
+        alias: app.page
+        section: admin
+        templates: "@SyliusAdmin\\Crud"
+        redirect: index
+        grid: app_admin_page
+        vars:
+            all:
+                subheader: app.ui.page
+                templates:
+                    form: 'page/_form.html.twig'
+            index:
+                icon: 'file image outline'
+    type: sylius.resource
+    prefix: admin
 
 bitbag_sylius_wishlist_plugin:
     resource: "@BitBagSyliusWishlistPlugin/Resources/config/routing.yml"

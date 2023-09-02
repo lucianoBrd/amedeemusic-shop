@@ -59,6 +59,16 @@ services:
         tags:
             - { name: form.type }
         arguments: ['%app.model.product_bundle.class%', ['sylius']]
+    app.page.form.type:
+        class: App\Form\Type\Page\PageType
+        tags:
+            - { name: form.type }
+        arguments: ['%app.model.page.class%', ['sylius']]
+    app.page_translation.form.type:
+        class: App\Form\Type\Page\PageTranslationType
+        tags:
+            - { name: form.type }
+        arguments: ['%app.model.page_translation.class%', ['sylius']]
 
     # Menus
     app.listener.admin.menu_builder:

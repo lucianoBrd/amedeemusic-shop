@@ -23,3 +23,13 @@ sylius_resource:
                 model: App\Entity\ProductBundle\ProductBundle
                 form: App\Form\Type\ProductBundle\ProductBundleType
                 repository: App\Repository\ProductBundle\ProductBundleRepository
+        app.page:
+            driver: doctrine/orm # You can use also different driver here
+            classes:
+                model: App\Entity\Page\Page
+                form: App\Form\Type\Page\PageType
+                repository: App\Repository\Page\PageRepository
+            translation:
+                classes:
+                    model: App\Entity\Page\PageTranslation
+                    form: App\Form\Type\Page\PageTranslationType

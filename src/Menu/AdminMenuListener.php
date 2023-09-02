@@ -27,5 +27,9 @@ final class AdminMenuListener
             ->addChild('product_bundle', ['route' => 'app_admin_product_bundle_index'])
             ->setLabel('Product Bundle')
         ;
+        $newSubmenu
+            ->addChild('page', ['route' => 'app_admin_page_index'])
+            ->setLabel('Pages')
+        ;
     }
 }
